@@ -1,0 +1,102 @@
+input, textarea, select {
+    margin-bottom: 10px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.navbar-default {
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+body {
+    padding-top: 60px;
+}
+
+.list-group {
+    color : #337ab7;
+}
+
+.cammy-split-view-left {
+    position: absolute;
+    top: 60px;
+    bottom: 60px;
+    z-index: 1;
+    overflow-y: scroll;
+}
+
+@media (min-width: 1200px) {
+    .cammy-split-view-right {
+        position: absolute;
+        top: 60px;
+        bottom: 60px;
+        right: 0px;
+        overflow-y: scroll;
+    }
+}
+
+.am-gly {
+    color: white;
+    align-content: center;
+}
+
+.am-widget-gly {
+    font-size: 25px;
+    position: absolute;
+    z-index: 1;
+}
+
+.am-back-color {
+    background-color: white;
+}
+
+.am-bottom-margin {
+    margin-bottom: 10px;
+}
+
+.am-gly-black {
+    color: black;
+}
+
+.am-font {
+    font-size: 25px;
+}
+
+c {
+    color: deepskyblue;
+}
+
+.am-scroll {
+    position: absolute;
+    top: 60px;
+    bottom: 60px;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.am-img-size {
+    height: 210px;
+    width: 405px;
+}
+
+.video-container {
+    position:relative;
+    height:300px;
+    overflow:hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+    position:absolute;
+    width:375px;
+    height:300px;
+}
+
+.am-header {
+    text-align: center;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-text pull-right">
+                <a href="profile.html">
+                    <span class="glyphicon glyphicon-ok am-gly"></span>
+                </a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Profile</a>
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container-fluid am-scroll">
+        <label for="username">Username</label>
+        <input class="form-control"
+               readonly
+               name="username"
+               value="alice"
+               id ="username"/>
+        <label for="email">Email</label>
+        <input class="form-control"
+               name="email"
+               value="alice@wonderland.com"
+               id ="email"
+               type = "email"/>
+        <label for="first_Name">First Name</label>
+        <input class="form-control"
+               name="firstName"
+               value="Alice"
+               id ="first_Name"/>
+        <label for="last_Name">Last Name</label>
+        <input class="form-control"
+               name="lastName"
+               value="Wonderland"
+               id ="last_Name"/>
+
+        <a class="btn btn-primary btn-block btn-default" href="website-list.html" role="button">Websites</a>
+        <a class="btn btn-danger btn-block btn-default" href="login.html" role="button">Logout</a>
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="profile.html">
+                        <span class="glyphicon glyphicon-user pull-right" style="color: white"></span>
+                    </a>
+                </li>
+
+            </ul>
+        </div><!-- /.container-fluid -->
+    </nav>
+</div>
+</body>
+</html>
