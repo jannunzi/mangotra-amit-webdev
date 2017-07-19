@@ -17,6 +17,7 @@ a:hover {
 
 body {
     padding-top: 60px;
+    overflow-x: hidden;
 }
 
 .list-group {
