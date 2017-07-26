@@ -1,0 +1,36 @@
+<div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-text pull-left">
+                <a href="#!/user/{{model.uid}}/website">
+                    <span class="glyphicon glyphicon-chevron-left am-gly"></span>
+                </a>
+            </div>
+            <div class="navbar-text pull-right">
+                <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page/new">
+                    <span class="glyphicon glyphicon-plus am-gly"></span>
+                </a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand">Pages</a>
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container-fluid am-scroll">
+        <div ng-include="'views/page/templates/page-list.component.client.html'"></div>
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#!/profile/{{model.uid}}">
+                        <span class="glyphicon glyphicon-user pull-right am-gly"></span>
+                    </a>
+                </li>
+
+            </ul>
+        </div><!-- /.container-fluid -->
+    </nav>
+</div>

@@ -1,0 +1,116 @@
+<div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-text pull-left">
+                <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page">
+                    <span class="glyphicon glyphicon-chevron-left am-gly"></span>
+                </a>
+            </div>
+            <div class="navbar-text pull-right">
+                <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/new">
+                    <span class="glyphicon glyphicon-plus am-gly"></span>
+                </a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand">Widgets</a>
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container-fluid am-scroll">
+        <div ng-repeat="widget in model.widgets">
+            <div ng-switch="widget.widgetType">
+                <div ng-switch-when="HEADING">
+                    <div class="row">
+                        <div class="col-xs-12 am-bottom-margin">
+                            <div ng-switch="widget.size">
+                                <div ng-switch-when="1">
+                                    <h1>{{widget.text}}</h1>
+                                </div>
+                                <div ng-switch-when="2">
+                                    <h2>{{widget.text}}</h2>
+                                </div>
+                                <div ng-switch-when="3">
+                                    <h3>{{widget.text}}</h3>
+                                </div>
+                                <div ng-switch-when="4">
+                                    <h4>{{widget.text}}</h4>
+                                </div>
+                                <div ng-switch-when="5">
+                                    <h5>{{widget.text}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 am-widget-gly">
+                            <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}">
+                                <span class="glyphicon glyphicon-align-justify pull-right am-gly-black am-back-color"></span>
+                                <span class="glyphicon glyphicon-cog pull-right am-back-color"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div ng-switch-when="IMAGE">
+                    <div class="row">
+                        <div class="col-xs-12 am-bottom-margin am-img-size">
+                            <img ng-src="{{widget.url}}"
+                                 width="{{widget.width}}"
+                                 height="210"
+                                 class="img-responsive"
+                                 alt="Responsive image"/>
+                        </div>
+                        <div class="col-xs-12 am-widget-gly">
+                            <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}">
+                                <span class="glyphicon glyphicon-align-justify pull-right am-gly-black am-back-color"></span>
+                                <span class="glyphicon glyphicon-cog pull-right am-back-color"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div ng-switch-when="YOUTUBE">
+                    <div class="row">
+                        <div class="col-xs-12 am-bottom-margin video-container">
+                            <iframe width="{{widget.width}}"
+                                    height="315"
+                                    src="{{model.trustworthyUrl(widget.url)}}"
+                                    frameborder="0"
+                                    allowfullscreen
+                                    class="center-block video-container-iframe"></iframe>
+                        </div>
+                        <div class="col-xs-12 am-widget-gly">
+                            <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}">
+                                <span class="glyphicon glyphicon-align-justify pull-right am-gly-black am-back-color"></span>
+                                <span class="glyphicon glyphicon-cog pull-right am-back-color"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div ng-switch-when="HTML">
+                    <div class="row">
+                        <div ng-bind-html="model.trustHtmlContent(widget.text)"
+                             class="col-xs-12 am-p">
+                        </div>
+                        <div class="col-xs-12 am-widget-gly">
+                            <a>
+                                <span class="glyphicon glyphicon-align-justify pull-right am-gly-black am-back-color"></span>
+                                <span class="glyphicon glyphicon-cog pull-right am-back-color"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#!/profile/{{model.uid}}">
+                        <span class="glyphicon glyphicon-user pull-right am-gly"></span>
+                    </a>
+                </li>
+
+            </ul>
+        </div><!-- /.container-fluid -->
+    </nav>
+</div>

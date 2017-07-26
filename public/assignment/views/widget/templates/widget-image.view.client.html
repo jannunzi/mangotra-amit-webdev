@@ -1,55 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>YouTube Widget</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
-</head>
-<body>
 <div>
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-text pull-left">
-                <a href="widget-list.html">
+                <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget">
                     <span class="glyphicon glyphicon-chevron-left am-gly"></span>
                 </a>
             </div>
             <div class="navbar-text pull-right">
-                <a href="widget-list.html">
+                <a ng-click="model.updateWidget(model.widget)">
                     <span class="glyphicon glyphicon-ok am-gly"></span>
                 </a>
             </div>
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Widget Edit</a>
+                <a class="navbar-brand">Widget Edit</a>
             </div>
         </div><!-- /.container-fluid -->
     </nav>
-    <div class="container-fluid">
+    <div class="container-fluid am-scroll">
         <label for="name">Name</label>
         <input  class="form-control"
                 name="name"
                 placeholder="Heading Name"
+                ng-model="model.widget.name"
                 id ="name"/>
         <label for="text">Text</label>
         <textarea class="form-control"
                   rows="3"
                   placeholder="Text"
+                  ng-model="model.widget.text"
                   name="text"
                   id ="text"
         ></textarea>
         <label for="size">URL</label>
         <input  class="form-control"
                 name="url"
-                value="https://www.youtu.be/uLWLashCXHE"
+                placeholder="URL"
+                ng-model="model.widget.url"
+                value="https://i.kinja-img.com/gawker-media/image"
                 id ="size"/>
         <label for="width">Width</label>
         <input  class="form-control"
                 name="width"
+                ng-model="model.widget.width"
                 value="100%"
                 id ="width"/>
-        <a class="btn btn-danger btn-block btn-default" href="widget-list.html" role="button">Delete</a>
+        <label for="image">Upload</label>
+        <input  class="form-control"
+                type="file"
+                name="name"
+                placeholder="Heading Name"
+                id ="image"/>
+        <a class="btn btn-primary btn-block btn-default"
+           role="button">Upload Image</a>
+        <a class="btn btn-danger btn-block btn-default"
+           ng-click="model.deleteWidget(model.widget)"
+           role="button">Delete</a>
     </div>
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
@@ -57,8 +62,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="profile.html">
-                        <span class="glyphicon glyphicon-user pull-right" style="color: white"></span>
+                    <a href="#!/profile/{{model.uid}}">
+                        <span class="glyphicon glyphicon-user pull-right am-gly"></span>
                     </a>
                 </li>
 
@@ -66,5 +71,3 @@
         </div><!-- /.container-fluid -->
     </nav>
 </div>
-</body>
-</html>

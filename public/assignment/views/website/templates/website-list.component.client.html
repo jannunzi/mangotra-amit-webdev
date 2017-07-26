@@ -1,0 +1,16 @@
+<ul class="list-group">
+    <li class="list-group-item active">
+        Name
+        <a href="#!/user/{{model.uid}}/website/new">
+            <span class="glyphicon glyphicon-plus pull-right am-gly"></span>
+        </a>
+    </li>
+    <li ng-repeat="website in model.websites" class="list-group-item">
+        <a href="#!/user/{{model.uid}}/website/{{website._id}}/page">
+            {{website.name}}
+        </a>
+        <a href="#!/user/{{model.uid}}/website/{{website._id}}">
+            <span class="glyphicon glyphicon-cog pull-right"></span>
+        </a>
+    </li>
+</ul>

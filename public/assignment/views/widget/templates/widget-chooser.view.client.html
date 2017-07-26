@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Widget Chooser</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
-</head>
-<body>
+<div>
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div>
                 <div class="navbar-text pull-left">
-                    <a href="widget-list.html">
+                    <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget">
                         <span class="glyphicon glyphicon-chevron-left am-gly"></span>
                     </a>
                 </div>
@@ -25,52 +16,52 @@
     <div class="container-fluid am-scroll">
         <ul class="list-group">
             <li class="list-group-item">
-                <a href="widget-heading.html">
+                <a ng-click="model.createWidget('HEADING')">
                     Header
                 </a>
             </li>
             <li class="list-group-item">
-                <a href="#">
+                <a>
                     Label
                 </a>
             </li>
             <li class="list-group-item">
-                <a href="#">
+                <a>
                     HTML
                 </a>
             </li>
             <li class="list-group-item">
-                <a href="#">
+                <a>
                     Text Input
                 </a>
             </li>
             <li class="list-group-item">
-                <a href="#">
+                <a>
                     Link
                 </a>
             </li>
             <li class="list-group-item">
-                <a href="#">
+                <a>
                     Button
                 </a>
             </li>
             <li class="list-group-item">
-                <a href="widget-image.html">
+                <a ng-click="model.createWidget('IMAGE')">
                     Image
                 </a>
             </li>
             <li class="list-group-item">
-                <a href="widget-youtube.html">
+                <a ng-click="model.createWidget('YOUTUBE')">
                     YouTube
                 </a>
             </li>
             <li class="list-group-item">
-                <a href="#">
+                <a>
                     Data Table
                 </a>
             </li>
             <li class="list-group-item">
-                <a href="#l">
+                <a>
                     Repeater
                 </a>
             </li>
@@ -82,7 +73,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="profile.html">
+                    <a href="#!/profile/{{model.uid}}">
                         <span class="glyphicon glyphicon-user pull-right am-gly"></span>
                     </a>
                 </li>
@@ -90,5 +81,4 @@
             </ul>
         </div><!-- /.container-fluid -->
     </nav>
-</body>
-</html>
+</div>

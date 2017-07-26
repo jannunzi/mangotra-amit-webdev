@@ -1,28 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Edit Website</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
-</head>
-<body>
 <div>
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-text pull-left">
-                <a href="widget-list.html">
+                <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget">
                     <span class="glyphicon glyphicon-chevron-left am-gly"></span>
                 </a>
             </div>
             <div class="navbar-text pull-right">
-                <a href="widget-list.html">
+                <a ng-click="model.updateWidget(model.widget)">
                     <span class="glyphicon glyphicon-ok am-gly"></span>
                 </a>
             </div>
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Widget Edit</a>
+                <a class="navbar-brand">Widget Edit</a>
             </div>
         </div><!-- /.container-fluid -->
     </nav>
@@ -31,24 +21,29 @@
         <input  class="form-control"
                 name="name"
                 placeholder="Heading Name"
+                ng-model="model.widget.name"
                 id ="name"/>
         <label for="text">Text</label>
         <textarea class="form-control"
+                  ng-model="model.widget.text"
                   rows="3"
                   name="text"
-                  id ="text">US Senate reaches compromises on Emergency Zika Funding</textarea>
+                  placeholder="Text"
+                  id ="text"></textarea>
         <label for="size">Size</label>
-        <select class="form-control"
+        <select class="form-control am-bottom-margin"
                 name="size"
+                ng-model="model.widget.size"
                 id ="size">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
-            <option value="6">6</option>
         </select>
-        <a class="btn btn-danger btn-block btn-default" href="widget-list.html" role="button">Delete</a>
+        <a class="btn btn-danger btn-block btn-default"
+           ng-click="model.deleteWidget(model.widget)"
+           role="button">Delete</a>
     </div>
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
@@ -56,7 +51,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="profile.html">
+                    <a href="#!/profile/{{model.uid}}">
                         <span class="glyphicon glyphicon-user pull-right am-gly"></span>
                     </a>
                 </li>
@@ -65,5 +60,3 @@
         </div><!-- /.container-fluid -->
     </nav>
 </div>
-</body>
-</html>

@@ -1,0 +1,73 @@
+<div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-4 visible-lg">
+                    <div class="navbar-text pull-left">
+                        <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page">
+                            <span class="glyphicon glyphicon-chevron-left am-gly"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-header">
+                        <a class="navbar-brand">Pages</a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-8">
+                    <div class="navbar-text hidden-lg pull-left">
+                        <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page">
+                            <span class="glyphicon glyphicon-chevron-left am-gly"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-text pull-right">
+                        <a ng-click="model.updatePage(model.page)">
+                            <span class="glyphicon glyphicon-ok am-gly"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-header">
+                        <a class="navbar-brand">Edit Page</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 visible-lg cammy-split-view-left">
+                <div ng-include="'views/page/templates/page-list.component.client.html'"></div>
+            </div>
+            <div class="col-xs-12 col-lg-8 cammy-split-view-right">
+                    <label for="p_name">Name</label>
+                    <input  class="form-control"
+                            name="name"
+                            ng-model="model.page.name"
+                            placeholder = "Page Name"
+                            id ="p_name"/>
+                    <label for="title">Title</label>
+                    <textarea class="form-control"
+                              name="description"
+                              ng-model="model.page.description"
+                              placeholder="Page Title"
+                              id ="title"
+                    ></textarea>
+                    <a class="btn btn-danger btn-block btn-default"
+                       ng-click="model.deletePage(model.page)"
+                       role="button">Delete</a>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#!/profile/{{model.uid}}">
+                        <span class="glyphicon glyphicon-user pull-right am-gly"></span>
+                    </a>
+                </li>
+
+            </ul>
+        </div><!-- /.container-fluid -->
+    </nav>
+</div>

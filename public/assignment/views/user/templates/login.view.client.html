@@ -1,0 +1,28 @@
+<div>
+    <div class="container-fluid">
+        <div>
+            <h1>Login</h1>
+                <div ng-show="model.errorMessage" class="alert alert-danger">
+                        {{model.errorMessage}}
+                </div>
+                <input class="form-control"
+                       name="username"
+                       ng-model="model.user.username"
+                       placeholder="username"
+                       id ="username"/>
+                <input class="form-control"
+                       name="password"
+                       ng-model="model.user.password"
+                       placeholder="password"
+                       id ="password"
+                       type = "password"/>
+
+                <a class="btn btn-primary btn-block btn-default"
+                   ng-click="model.login(model.user)"
+                   role="button">Login</a>
+                <a class="btn btn-success btn-block btn-default"
+                   href="#!/register"
+                   role="button">Register</a>
+        </div>
+    </div>
+</div>

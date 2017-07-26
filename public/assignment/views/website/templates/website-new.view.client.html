@@ -1,0 +1,78 @@
+<div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-4 visible-lg">
+                    <div class="navbar-text pull-left">
+                        <a href="#!/user/{{model.uid}}/website">
+                            <span class="glyphicon glyphicon-chevron-left am-gly"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-header">
+                        <a class="navbar-brand">Websites</a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-8">
+                    <div class="navbar-text hidden-lg pull-left">
+                        <a href="#!/user/{{model.uid}}/website">
+                            <span class="glyphicon glyphicon-chevron-left am-gly"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-text pull-right">
+                        <a ng-click="model.createWebsite(model.website)">
+                            <span class="glyphicon glyphicon-ok am-gly"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-header">
+                        <a class="navbar-brand">New Website</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="row">
+        <div class="col-lg-4 visible-lg cammy-split-view-left">
+            <div class="container-fluid">
+                <div ng-include="'views/website/templates/website-list.component.client.html'"></div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-lg-8 cammy-split-view-right">
+            <div class="container-fluid">
+                <div ng-show="model.errorMessage" class="alert alert-danger">
+                    {{model.errorMessage}}
+                </div>
+                <label for="name">Name</label>
+                <input  class="form-control"
+                        name="name"
+                        ng-model="model.website.name"
+                        placeholder="Website Name"
+                        id ="name"/>
+                <label for="description">Description</label>
+                <textarea class="form-control"
+                          ng-model="model.website.description"
+                          rows="5"
+                          name="description"
+                          placeholder="Website Description"
+                          id ="description"
+                ></textarea>
+                <a class="btn btn-danger btn-default btn-block"
+                   href="#!/user/{{model.uid}}/website"
+                   role="button">Cancel</a>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#!/profile/{{model.uid}}">
+                        <span class="glyphicon glyphicon-user pull-right am-gly"></span>
+                    </a>
+                </li>
+
+            </ul>
+        </div><!-- /.container-fluid -->
+    </nav>
+</div>

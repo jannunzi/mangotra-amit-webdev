@@ -1,23 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Profile</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
-</head>
-<body>
 <div>
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-text pull-right">
-                <a href="profile.html">
+                <a ng-click="model.updateUser(model.user)">
                     <span class="glyphicon glyphicon-ok am-gly"></span>
                 </a>
             </div>
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Profile</a>
+                <a class="navbar-brand">Profile</a>
             </div>
         </div><!-- /.container-fluid -->
     </nav>
@@ -26,27 +16,39 @@
         <input class="form-control"
                readonly
                name="username"
-               value="alice"
+               ng-model="model.user.username"
                id ="username"/>
         <label for="email">Email</label>
         <input class="form-control"
                name="email"
-               value="alice@wonderland.com"
+               placeholder="alice@wonderland.com"
                id ="email"
                type = "email"/>
         <label for="first_Name">First Name</label>
         <input class="form-control"
                name="firstName"
-               value="Alice"
+               ng-model="model.user.firstName"
+               placeholder="First Name"
                id ="first_Name"/>
         <label for="last_Name">Last Name</label>
         <input class="form-control"
                name="lastName"
-               value="Wonderland"
+               ng-model="model.user.lastName"
+               placeholder="Last Name"
                id ="last_Name"/>
 
-        <a class="btn btn-primary btn-block btn-default" href="website-list.html" role="button">Websites</a>
-        <a class="btn btn-danger btn-block btn-default" href="login.html" role="button">Logout</a>
+        <a class="btn btn-primary btn-block btn-default"
+           href="#!/user/{{model.user._id}}/website"
+           role="button">Websites</a>
+        <a class="btn btn-danger btn-block btn-default"
+           href="#!/login"
+           role="button">Logout</a>
+        <a class="btn btn-danger btn-block btn-default"
+           ng-click="model.unregister(model.user)"
+           role="button">Unregister</a>
+        <a class="btn btn-primary btn-block btn-default"
+           ng-click="model.updateUser(model.user)"
+           role="button">Update</a>
     </div>
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
@@ -54,8 +56,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="profile.html">
-                        <span class="glyphicon glyphicon-user pull-right" style="color: white"></span>
+                    <a href="#!/profile/{{model.uid}}">
+                        <span class="glyphicon glyphicon-user pull-right am-gly"></span>
                     </a>
                 </li>
 
@@ -63,5 +65,3 @@
         </div><!-- /.container-fluid -->
     </nav>
 </div>
-</body>
-</html>

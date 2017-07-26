@@ -81,10 +81,9 @@ c {
     overflow-y: scroll;
 }
 
-.am-img-size {
-    height: 210px;
-    width: 405px;
-}
+/*.am-img-size {*/
+    /*height: 210px;*/
+/*}*/
 
 .video-container {
     position:relative;
@@ -94,10 +93,17 @@ c {
 
 .video-container iframe, .video-container object, .video-container embed {
     position:absolute;
-    width:375px;
     height:300px;
+}
+
+iframe.video-container-iframe {
+    padding-right: 15px;
 }
 
 .am-header {
     text-align: center;
+}
+
+am-p {
+    font-family: italic;
 }

@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>New Website</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
-</head>
-<body>
 <div>
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-4 visible-lg">
                     <div class="navbar-text pull-left">
-                        <a href="page-list.html">
+                        <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page">
                             <span class="glyphicon glyphicon-chevron-left am-gly"></span>
                         </a>
                     </div>
@@ -24,12 +14,12 @@
                 </div>
                 <div class="col-xs-12 col-lg-8">
                     <div class="navbar-text hidden-lg pull-left">
-                        <a href="page-list.html">
+                        <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page">
                             <span class="glyphicon glyphicon-chevron-left am-gly"></span>
                         </a>
                     </div>
                     <div class="navbar-text pull-right">
-                        <a href="page-list.html">
+                        <a ng-click="model.addPage(model.page)">
                             <span class="glyphicon glyphicon-ok am-gly"></span>
                         </a>
                     </div>
@@ -45,50 +35,12 @@
     <div class="row">
         <div class="col-lg-4 visible-lg cammy-split-view-left">
             <div class="container-fluid">
-                <ul class="list-group">
-                    <li class="list-group-item active">
-                        Name
-                        <a href="page-new.html">
-                            <span class="glyphicon glyphicon-plus pull-right am-gly"></span>
-                        </a>
-                    </li>
+                <ul ng-repeat="page in model.pages"  class="list-group">
                     <li class="list-group-item">
-                        <a href="widget-list.html">
-                            Blog Post
+                        <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget">
+                            {{page.name}}
                         </a>
-                        <a href="page-edit.html">
-                            <span class="glyphicon glyphicon-cog pull-right"></span>
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="widget-list.html">
-                            Blogs
-                        </a>
-                        <a href="page-edit.html">
-                            <span class="glyphicon glyphicon-cog pull-right"></span>
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="widget-list.html">
-                            Home
-                        </a>
-                        <a href="page-edit.html">
-                            <span class="glyphicon glyphicon-cog pull-right"></span>
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="widget-list.html">
-                            About
-                        </a>
-                        <a href="page-edit.html">
-                            <span class="glyphicon glyphicon-cog pull-right"></span>
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="widget-list.html">
-                            Contact Us
-                        </a>
-                        <a href="page-edit.html">
+                        <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}">
                             <span class="glyphicon glyphicon-cog pull-right"></span>
                         </a>
                     </li>
@@ -100,15 +52,19 @@
                 <label for="p_name">Name</label>
                 <input  class="form-control"
                         name="name"
+                        ng-model="model.page.name"
                         placeholder="Page Name"
                         id ="p_name"/>
                 <label for="title">Title</label>
                 <textarea class="form-control"
                           name="description"
+                          ng-model="model.page.description"
                           placeholder="Page Title"
                           id ="title"
                 ></textarea>
-                <a class="btn btn-danger btn-block btn-default" href="page-list.html" role="button">Cancel</a>
+                <a class="btn btn-danger btn-block btn-default"
+                   href="#!/user/{{model.uid}}/website/{{model.wid}}/page"
+                   role="button">Cancel</a>
             </div>
         </div>
     </div>
@@ -118,7 +74,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="profile.html">
+                    <a href="#!/profile/{{model.uid}}">
                         <span class="glyphicon glyphicon-user pull-right am-gly"></span>
                     </a>
                 </li>
@@ -127,5 +83,3 @@
         </div><!-- /.container-fluid -->
     </nav>
 </div>
-</body>
-</html>
