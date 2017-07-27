@@ -14,5 +14,5 @@ Following are the required links:<br />
 * Assignment: https://mangotra-amit-webdev.herokuapp.com/assignment/
 <br />
 Contact details:<br />
-_Phone:_ +1-916-886-9297<br />
-_E-mail:_ mangotra.a@husyky.neu.edu
+_Phone: +1-916-886-9297_<br />
+_E-mail: mangotra.a@husyky.neu.edu_
