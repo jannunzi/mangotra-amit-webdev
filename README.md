@@ -11,8 +11,8 @@ This repository is for assignments and project for Web Development(CS-5610).<br 
 Following are the required links:<br />
 * _WebApp:_ https://mangotra-amit-webdev.herokuapp.com
 * _Project:_ https://mangotra-amit-webdev.herokuapp.com/project/index.html
-* Assignment: https://mangotra-amit-webdev.herokuapp.com/assignment/
+* _Assignment:_ https://mangotra-amit-webdev.herokuapp.com/assignment/
 <br />
 Contact details:<br />
-_Phone: +1-916-886-9297_<br />
-_E-mail: mangotra.a@husyky.neu.edu_
+Phone: +1-916-886-9297<br />
+E-mail: mangotra.a@husky.neu.edu
