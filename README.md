@@ -9,9 +9,9 @@ created a search engine which uses crawled data and generate index to search a g
 This repository is for assignments and project for Web Development(CS-5610).<br /><br />
 
 Following are the required links:<br />
-* _WebApp:_ https://mangotra-amit-webdev.herokuapp.com
-* _Project:_ https://mangotra-amit-webdev.herokuapp.com/project/index.html
-* _Assignment:_ https://mangotra-amit-webdev.herokuapp.com/assignment/
+* [_WebApp_](https://mangotra-amit-webdev.herokuapp.com)
+* [_Project_](https://mangotra-amit-webdev.herokuapp.com/project/index.html)
+* [_Assignment_](https://mangotra-amit-webdev.herokuapp.com/assignment/)
 <br />
 Contact details:<br />
 Phone: +1-916-886-9297<br />
