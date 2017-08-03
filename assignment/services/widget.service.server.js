@@ -1,10 +1,10 @@
 /**
  * Created by cammy on 8/2/17.
  */
-var app = require("../express");
+var app = require("../../express");
 
 var multer = require('multer');
-var upload = multer({ dest: __dirname+'/../public/uploads' });
+var upload = multer({ dest: __dirname+'/../../public/uploads' });
 
 var widgets = [
     { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
@@ -130,8 +130,6 @@ function updateWidgetIndex(req, res) {
     }
     var widget = _widgets.splice(start, 1);
     _widgets.splice(end, 0, widget[0]);
-    widgets
-        .push
-        .apply(widgets, _widgets);
+    widgets.push.apply(widgets, _widgets);
     res.send("0");
 }

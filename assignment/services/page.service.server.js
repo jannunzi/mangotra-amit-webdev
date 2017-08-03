@@ -1,7 +1,7 @@
 /**
  * Created by cammy on 8/2/17.
  */
-var app = require("../express");
+var app = require("../../express");
 
 var pages = [
     { "_id": "321", "name": "Post 1", "websiteId": "456", "description": "Lorem" },

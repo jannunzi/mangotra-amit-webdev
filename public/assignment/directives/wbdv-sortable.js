@@ -4,21 +4,16 @@
 (function () {
     angular
         .module("webDevDirectives", [])
-        .directive("WebDevDirectives", WebDevDirectives);
+        .directive("widgetListDirectives", widgetListDirectives);
 
-    function WebDevDirectives(WidgetService) {
-
-        return {
-            link: linkFunction
-        };
-
+    function widgetListDirectives(WidgetService) {
         function linkFunction(scope, element) {
             var startIndex = -1;
             var endIndex = -1;
             $(element)
                 .sortable({
                     axis: "y",
-                    handle: ".grab-this-thing",
+                    handle: ".handle-sort",
                     start: function (event, ui) {
                         startIndex = ui.item.index();
                     },
@@ -28,6 +23,10 @@
                             .updateWidgetIndex(startIndex, endIndex, scope.model.pid);
                     }
                 });
+        }
+
+        return {
+            link: linkFunction
         }
     }
 })();

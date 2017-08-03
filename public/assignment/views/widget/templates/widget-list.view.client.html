@@ -16,7 +16,7 @@
             </div>
         </div><!-- /.container-fluid -->
     </nav>
-    <div class="container-fluid am-scroll">
+    <div class="container-fluid am-scroll" id="widget-list">
         <div ng-repeat="widget in model.widgets">
             <div ng-switch="widget.widgetType">
                 <div ng-switch-when="HEADING">
@@ -42,7 +42,7 @@
                         </div>
                         <div class="col-xs-12 am-widget-gly">
                             <a>
-                                <span class="glyphicon glyphicon-menu-hamburger pull-right am-gly-black am-back-color grab-this-thing"></span>
+                                <span class="glyphicon glyphicon-menu-hamburger pull-right am-gly-black am-back-color handle-sort"></span>
                             </a>
                             <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}">
                                 <span class="glyphicon glyphicon-cog pull-right am-back-color"></span>
@@ -61,7 +61,7 @@
                         </div>
                         <div class="col-xs-12 am-widget-gly">
                             <a>
-                                <span class="glyphicon glyphicon-menu-hamburger pull-right am-gly-black am-back-color grab-this-thing"></span>
+                                <span class="glyphicon glyphicon-menu-hamburger pull-right am-gly-black am-back-color handle-sort"></span>
                             </a>
                             <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}">
                                 <span class="glyphicon glyphicon-cog pull-right am-back-color"></span>
@@ -82,7 +82,7 @@
                         </div>
                         <div class="col-xs-12 am-widget-gly">
                             <a>
-                                <span class="glyphicon glyphicon-menu-hamburger pull-right am-gly-black am-back-color grab-this-thing"></span>
+                                <span class="glyphicon glyphicon-menu-hamburger pull-right am-gly-black am-back-color handle-sort"></span>
                             </a>
                             <a href="#!/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}">
                                 <span class="glyphicon glyphicon-cog pull-right am-back-color"></span>
@@ -97,7 +97,7 @@
                         </div>
                         <div class="col-xs-12 am-widget-gly">
                             <a>
-                                <span class="glyphicon glyphicon-menu-hamburger pull-right am-gly-black am-back-color grab-this-thing"></span>
+                                <span class="glyphicon glyphicon-menu-hamburger pull-right am-gly-black am-back-color handle-sort"></span>
                             </a>
                             <a>
                                 <span class="glyphicon glyphicon-cog pull-right am-back-color"></span>

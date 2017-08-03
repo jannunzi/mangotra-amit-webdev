@@ -102,8 +102,10 @@ iframe.video-container-iframe {
 
 .am-header {
     text-align: center;
+    color: #31708f;
 }
 
 am-p {
     font-family: italic;
 }
+
