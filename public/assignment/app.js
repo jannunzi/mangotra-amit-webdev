@@ -3,5 +3,5 @@
  */
 (function () {
     angular
-        .module("WebAppMaker", ["ngRoute", "webDevDirectives"]);
+        .module("WebAppMaker", ["ngRoute"]);
 })();
