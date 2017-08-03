@@ -15,7 +15,11 @@
         model.addPage = addPage;
 
         function init() {
-            model.pages = PageService.findPageByWebsiteId(model.wid);
+            PageService
+                .findPageByWebsiteId(model.wid)
+                .then(function (response) {
+                    model.pages = response.data;
+                })
         }
         init();
 
@@ -24,13 +28,12 @@
                 model.errorMessage = "Enter page name";
                 return;
             }
-            var pageName = PageService.findPageByName(page.name, model.wid);
-            if(!pageName) {
-                PageService.createPage(model.wid, page);
-                $location.url("/user/" + model.uid + "/website/" + model.wid + "/page");
-            } else {
-                model.errorMessage = "Page already exists";
-            }
+            PageService
+                .createPage(model.wid, page)
+                .then(function (response) {
+                    $location
+                        .url("/user/" + model.uid + "/website/" + model.wid + "/page");
+                });
         }
     }
 })();

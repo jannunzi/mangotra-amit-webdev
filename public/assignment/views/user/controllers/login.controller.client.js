@@ -21,12 +21,16 @@
                 model.errorMessage = "Enter username and password";
                 return;
             }
-            user = UserService.findUserByCredentials(user.username, user.password);
-            if(user === null) {
-                model.errorMessage = "Invalid username and password";
-            } else {
-                $location.url("profile/"+user._id);
-            }
+            UserService.findUserByCredentials(user.username, user.password)
+                .then(function (response) {
+                    user = response.data;
+                    if(user === "0") {
+                        model.errorMessage = "Invalid username and password";
+                    } else {
+                        $location.url("profile/"+user._id);
+                    }
+                });
+
         }
     }
 })();

@@ -12,7 +12,11 @@
         model.uid = $routeParams["uid"];
 
         function init() {
-            model.websites = WebsiteService.findWebsitesByUser(model.uid);
+            WebsiteService
+                .findWebsitesByUser(model.uid)
+                .then(function (websites) {
+                    model.websites = websites;
+                })
         }
         init();
 

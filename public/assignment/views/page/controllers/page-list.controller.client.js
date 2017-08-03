@@ -12,7 +12,11 @@
         model.wid = $routeParams["wid"];
 
         function init() {
-            model.pages = PageService.findPageByWebsiteId(model.wid);
+            PageService
+                .findPageByWebsiteId(model.wid)
+                .then(function (response) {
+                    model.pages = response.data;
+                });
         }
         init();
     }

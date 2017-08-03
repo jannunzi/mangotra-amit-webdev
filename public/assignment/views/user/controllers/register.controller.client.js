@@ -21,17 +21,26 @@
                 model.errorMessage = "Enter username and password to register";
                 return;
             }
-            var _user = UserService.findUserByUsername(user.username);
-            if(!_user) {
-                if (user.password === user.verify_password) {
-                    var user = UserService.createUser(user);
-                    $location.url("/profile/" + user._id);
-                } else {
-                    model.errorMessage = "Password doesn't match";
-                }
-            } else {
-                model.errorMessage = "User already exists";
-            }
+            UserService
+                .findUserByUsername(user.username)
+                .then(function (response) {
+                    var _user = response.data;
+                    if(_user === "0") {
+                        if (user.password === user.verify_password) {
+                            UserService.createUser(user)
+                                .then(function (response) {
+                                    _user = response.data;
+                                    $location.url("/profile/" + _user._id);
+                                })
+
+                        } else {
+                            model.errorMessage = "Password doesn't match";
+                        }
+                    } else {
+                        model.errorMessage = "User already exists";
+                    }
+                })
+
         }
     }
 })();

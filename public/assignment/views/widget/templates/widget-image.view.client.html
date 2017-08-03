@@ -17,44 +17,46 @@
         </div><!-- /.container-fluid -->
     </nav>
     <div class="container-fluid am-scroll">
-        <label for="name">Name</label>
-        <input  class="form-control"
-                name="name"
-                placeholder="Heading Name"
-                ng-model="model.widget.name"
-                id ="name"/>
-        <label for="text">Text</label>
-        <textarea class="form-control"
-                  rows="3"
-                  placeholder="Text"
-                  ng-model="model.widget.text"
-                  name="text"
-                  id ="text"
-        ></textarea>
-        <label for="size">URL</label>
-        <input  class="form-control"
-                name="url"
-                placeholder="URL"
-                ng-model="model.widget.url"
-                value="https://i.kinja-img.com/gawker-media/image"
-                id ="size"/>
-        <label for="width">Width</label>
-        <input  class="form-control"
-                name="width"
-                ng-model="model.widget.width"
-                value="100%"
-                id ="width"/>
-        <label for="image">Upload</label>
-        <input  class="form-control"
-                type="file"
-                name="name"
-                placeholder="Heading Name"
-                id ="image"/>
-        <a class="btn btn-primary btn-block btn-default"
-           role="button">Upload Image</a>
-        <a class="btn btn-danger btn-block btn-default"
-           ng-click="model.deleteWidget(model.widget)"
-           role="button">Delete</a>
+        <form action="/api/upload"   method="post" enctype="multipart/form-data">
+            <label for="name">Name</label>
+            <input  class="form-control"
+                    name="name"
+                    placeholder="Heading Name"
+                    ng-model="model.widget.name"
+                    id ="name"/>
+            <label for="text">Text</label>
+            <textarea class="form-control"
+                      rows="3"
+                      placeholder="Text"
+                      ng-model="model.widget.text"
+                      name="text"
+                      id ="text"
+            ></textarea>
+            <label for="size">URL</label>
+            <input  class="form-control"
+                    name="url"
+                    placeholder="URL"
+                    ng-model="model.widget.url"
+                    value="https://i.kinja-img.com/gawker-media/image"
+                    id ="size"/>
+            <label for="width">Width</label>
+            <input  class="form-control"
+                    name="width"
+                    ng-model="model.widget.width"
+                    value="100%"
+                    id ="width"/>
+            <label for="image">Upload</label>
+            <input  name="myFile"    type="file" class="form-control" id ="image"/>
+            <input  name="width"     value="{{model.widget.width}}" style="display: none"/>
+            <input  name="userId"    value="{{model.uid}}"   style="display: none"/>
+            <input  name="websiteId" value="{{model.wid}}"   style="display: none"/>
+            <input  name="pageId"    value="{{model.pid}}"   style="display: none"/>
+            <input  name="widgetId"  value="{{model.widget._id}}"   style="display: none"/>
+            <button type="submit"    class="btn btn-block btn-primary">Upload Image</button>
+            <a class="btn btn-danger btn-block btn-default"
+               ng-click="model.deleteWidget(model.widget)"
+               role="button">Delete</a>
+        </form>
     </div>
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">

@@ -14,17 +14,28 @@
         model.unregister = unregister;
 
         function init() {
-            model.user = UserService.findUserById(model.uid);
+            UserService.findUserById(model.uid)
+                .then(function (response) {
+                    model.user = response.data;
+            });
         }
         init();
 
         function updateUser(user) {
-            model.user = UserService.updateUser(user._id, user);
+            UserService
+                .updateUser(user._id, user)
+                .then(function (response) {
+                    model.user = response.data;
+                });
         }
 
         function unregister(user) {
-            UserService.deleteUser(user._id);
-            $location.url("login/");
+            UserService
+                .deleteUser(user._id)
+                .then(function (response) {
+                    $location.url("login/");
+                })
+
         }
     }
 })();

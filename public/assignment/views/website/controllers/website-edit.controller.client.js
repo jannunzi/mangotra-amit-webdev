@@ -16,23 +16,33 @@
         model.deleteWebsite = deleteWebsite;
 
         function init() {
-            model.websites = WebsiteService.findWebsitesByUser(model.uid);
-            model.website = WebsiteService.findWebsiteById(model.wid, model.uid);
+            WebsiteService
+                .findWebsitesByUser(model.uid)
+                .then(function (websites) {
+                    model.websites = websites;
+                });
+            WebsiteService
+                .findWebsiteById(model.wid, model.uid)
+                .then(function (response) {
+                    model.website = response.data;
+                });
         }
         init();
 
         function updateWebsite(website) {
-            if(website.name) {
-                WebsiteService.updateWebsite(website, model.uid);
-                $location.url("/user/" + model.uid + "/website");
-            } else {
-                model.errorMessage = "Enter the name of website";
-            }
+            WebsiteService
+                .updateWebsite(website, model.uid)
+                .then(function (response) {
+                    $location.url("/user/" + model.uid + "/website");
+                });
         }
 
         function deleteWebsite(website) {
-            WebsiteService.deleteWebsite(website, model.uid);
-            $location.url("/user/" + model.uid + "/website");
+            WebsiteService
+                .deleteWebsite(website, model.uid)
+                .then(function (response) {
+                    $location.url("/user/" + model.uid + "/website");
+                });
         }
     }
 })();

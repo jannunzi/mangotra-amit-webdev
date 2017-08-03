@@ -16,15 +16,23 @@
         model.createWidget = createWidget;
 
         function init() {
-            model.widgets = WidgetService.findWidgetsByPageId(model.pid);
+            WidgetService
+                .findWidgetsByPageId(model.pid)
+                .then(function (response) {
+                    model.widgets = response.data;
+                });
         }
         init();
 
         function createWidget(type) {
             var widget = {widgetType: type};
-            var _widget = WidgetService.createWidget(model.pid, widget);
-            $location
-                .url("/user/" + model.uid + "/website/" + model.wid + "/page/" + model.pid + "/widget/" + _widget._id);
+            WidgetService
+                .createWidget(model.pid, widget)
+                .then(function (response) {
+                    widget._id = response.data;
+                    $location
+                        .url("/user/" + model.uid + "/website/" + model.wid + "/page/" + model.pid + "/widget/" + widget._id);
+                });
         }
     }
 })();

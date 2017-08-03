@@ -11,8 +11,13 @@
 
         model.uid = $routeParams["uid"];
         model.createWebsite = createWebsite;
+
         function init() {
-            model.websites = WebsiteService.findWebsitesByUser(model.uid);
+            WebsiteService
+                .findWebsitesByUser(model.uid)
+                .then(function (websites) {
+                    model.websites = websites;
+                });
         }
         init();
         
@@ -21,13 +26,11 @@
                 model.errorMessage = "Enter the website name";
                 return;
             }
-            var _websiteName = WebsiteService.findWebsitesByName(website.name, model.uid);
-            if (!_websiteName) {
-                WebsiteService.createWebsite(model.uid, website);
-                $location.url("/user/" + model.uid + "/website");
-            } else {
-                model.errorMessage = "Website already exists";
-            }
+            WebsiteService
+                .createWebsite(model.uid, website)
+                .then(function (response) {
+                    $location.url("/user/" + model.uid + "/website");
+                });
         }
     }
 })();
