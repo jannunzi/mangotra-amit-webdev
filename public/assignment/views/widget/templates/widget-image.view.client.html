@@ -53,6 +53,9 @@
             <input  name="pageId"    value="{{model.pid}}"   style="display: none"/>
             <input  name="widgetId"  value="{{model.widget._id}}"   style="display: none"/>
             <button type="submit"    class="btn btn-block btn-primary">Upload Image</button>
+            <a class="btn btn-success btn-block btn-default"
+               href="#!/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{model.widget._id}}/search"
+               role="button">Search</a>
             <a class="btn btn-danger btn-block btn-default"
                ng-click="model.deleteWidget(model.widget)"
                role="button">Delete</a>

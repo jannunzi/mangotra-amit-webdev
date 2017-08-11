@@ -17,16 +17,12 @@
         init();
         
         function registerUser(user) {
-            if(!user.username) {
-                model.errorMessage = "Enter username and password to register";
-                return;
-            }
             UserService
                 .findUserByUsername(user.username)
                 .then(function (response) {
                     var _user = response.data;
-                    if(_user === "0") {
-                        if (user.password === user.verify_password) {
+                    if(!_user) {
+                        if (user.password === user.verify_password && user.password && user.verify_password) {
                             UserService.createUser(user)
                                 .then(function (response) {
                                     _user = response.data;
@@ -34,7 +30,7 @@
                                 })
 
                         } else {
-                            model.errorMessage = "Password doesn't match";
+                            model.errorMessage = "Password doesn't match or some field missing";
                         }
                     } else {
                         model.errorMessage = "User already exists";

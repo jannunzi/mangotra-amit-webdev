@@ -26,13 +26,13 @@
             return $http.get(url);
         }
 
-        function findPageByName(pageName, websiteId) {
-            var url = "/api/website/" + websiteId + "/page?pagename=" + pageName;
-            return $http.get(url);
-        }
+        // function findPageByName(pageName, websiteId) {
+        //     var url = "/api/website/" + websiteId + "/page?pagename=" + pageName;
+        //     return $http.get(url);
+        // }
 
-        function findPageById(pid) {
-            var url = "/api/page/" + pid;
+        function findPageById(pageId) {
+            var url = "/api/page/" + pageId;
             return $http.get(url);
         }
 
@@ -41,8 +41,8 @@
             return $http.put(url, page);
         }
 
-        function deletePage(page) {
-            var url = "/api/page/" + page._id;
+        function deletePage(websiteId, pageId) {
+            var url = "/api/website/"+websiteId+"/page/" + pageId;
             return $http.delete(url);
         }
     }

@@ -1,12 +1,6 @@
 var app = require("../../express");
 var userModel = require("../models/user.model.server");
 
-var users = [
-    {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
-    {_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley"  },
-    {_id: "345", username: "charly",   password: "charly",   firstName: "Charly", lastName: "Garcia"  },
-    {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
-];
 
 app.get("/api/user/:userId", getUserById);
 app.get("/api/user", findUser);
@@ -22,20 +16,12 @@ function updateUser(req, res) {
     userModel
         .updateUser(userId, user)
         .then(function (status) {
-            res.json(status);
+            res.json(user);
             return;
         }, function (err) {
             res.sendStatus(404).send(err);
             return;
         });
-    // for(var u in users) {
-    //     if(users[u]._id === userId) {
-    //         users[u] = user;
-    //         res.send(user);
-    //         return;
-    //     }
-    // }
-    // res.sendStatus(404);
 }
 
 function createUser(req, res) {
@@ -45,9 +31,6 @@ function createUser(req, res) {
         .then(function (user) {
             res.json(user);
         });
-    // user._id = (new Date()).getTime() + "";
-    // users.push(user);
-    // res.send(user);
 }
 
 function deleteUser(req, res) {
@@ -57,11 +40,6 @@ function deleteUser(req, res) {
         .then(function (status) {
             res.sendStatus(200);
         });
-    // for(var u in users) {
-    //     if(users[u]._id === userId) {
-    //         delete users[u];
-    //     }
-    // }
 }
 
 function getUserById(req, res) {
@@ -71,13 +49,6 @@ function getUserById(req, res) {
         .then(function (user) {
             res.json(user);
         });
-    // for(var u in users) {
-    //     if (users[u]._id === userId) {
-    //         res.send(users[u]);
-    //         return;
-    //     }
-    // }
-    // res.sendStatus(404);
 }
 
 function findUser(req, res) {
@@ -88,24 +59,12 @@ function findUser(req, res) {
         userModel
             .findUserByCredentials(username, password)
             .then(function (user) {
-                if (user != null) {
-                    res.json(user);
-                    return;
-                } else {
-                    res.sendStatus(404).send(err);
-                    return;
-                }
+                res.json(user);
+                return;
             }, function (err) {
                 res.sendStatus(404).send(err);
                 return;
             });
-        // for(var u in users) {
-        //     var _user = users[u];
-        //     if(_user.username === username && _user.password === password) {
-        //         res.send(_user);
-        //         return;
-        //     }
-        // }
         return;
     } else if(username) {
         userModel
@@ -115,12 +74,5 @@ function findUser(req, res) {
             }, function (err) {
                 res.sendStatus(404).send(err);
             });
-        // for(var u in users) {
-        //     if (users[u].username === username) {
-        //         res.send(users[u]);
-        //         return;
-        //     }
-        // }
     }
-    res.send("0");
 }

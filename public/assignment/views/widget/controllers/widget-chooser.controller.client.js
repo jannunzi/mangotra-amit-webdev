@@ -29,7 +29,7 @@
             WidgetService
                 .createWidget(model.pid, widget)
                 .then(function (response) {
-                    widget._id = response.data;
+                    var widget = response.data;
                     $location
                         .url("/user/" + model.uid + "/website/" + model.wid + "/page/" + model.pid + "/widget/" + widget._id);
                 });

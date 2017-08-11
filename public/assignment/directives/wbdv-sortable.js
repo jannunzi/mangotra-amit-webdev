@@ -27,6 +27,6 @@
 
         return {
             link: linkFunction
-        }
+        };
     }
 })();

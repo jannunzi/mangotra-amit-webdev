@@ -37,17 +37,14 @@
             return $http.put(url, widget);
         }
 
-        function deleteWidget(widget) {
-            var url = "/api/widget/" + widget._id;
+        function deleteWidget(pageId, widget) {
+            var url = "/api/page/"+pageId+"/widget/" + widget._id;
             return $http.delete(url);
         }
         
         function updateWidgetIndex(start, end, pageId) {
             var url = "/api/page/" + pageId + "/widget?initial=" + start + "&final=" + end;
-            return $http.put(url)
-                .then(function (response) {
-                    return response.data;
-                });
+            return $http.put(url);
         }
 
     }

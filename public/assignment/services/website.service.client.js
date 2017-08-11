@@ -35,12 +35,12 @@
         }
 
         function updateWebsite(website, userId) {
-            var url = "/api/website/" + website._id;
+            var url = "/api/user/" + userId + "/website/" + website._id;
             return $http.put(url, website);
         }
 
         function deleteWebsite(website, userId) {
-            var url = "/api/website/" + website._id;
+            var url = "/api/user/" + userId + "/website/" + website._id;
             return $http.delete(url);
         }
     }

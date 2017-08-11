@@ -18,19 +18,19 @@
 
         function login(user)  {
             if(!user) {
-                model.errorMessage = "Enter username and password";
+                model.errorMessage = "Please enter login details";
                 return;
             }
-            UserService.findUserByCredentials(user.username, user.password)
+            UserService
+                .findUserByCredentials(user.username, user.password)
                 .then(function (response) {
-                    user = response.data;
-                    if(user === "0") {
+                    var _user = response.data;
+                    if(_user === null) {
                         model.errorMessage = "Invalid username and password";
                     } else {
-                        $location.url("profile/"+user._id);
+                        $location.url("profile/"+_user._id);
                     }
                 });
-
         }
     }
 })();
