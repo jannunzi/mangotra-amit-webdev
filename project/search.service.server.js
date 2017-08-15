@@ -8,7 +8,7 @@ app.get('/find/events', searchEvent);
 var appKey = "162d592f5c53704651484b4c2c104f23";
 
 function searchEvent(req, res) {
-    var text = req.body;
+    var text = req.query.text;
     apiSearchQuery(text)
         .then(function (response) {
             res.json(response);
@@ -21,7 +21,7 @@ function apiSearchQuery(text) {
     var deferred = q.defer();
     https.get({
         host: 'api.meetup.com',
-        path: '/find/events?&sign=true&format=json&text="'+text,
+        path: '/find/events?key='+appKey+'&sign=true&format=json&text='+text,
         headers: {
             "Accept": "application/json",
             "app_key": appKey
